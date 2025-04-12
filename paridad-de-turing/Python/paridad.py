@@ -1,5 +1,8 @@
-#!/usr/bin/python3
-
+'''
+    Este módulo provee diferentes funciones para implementar
+    paridad de turing que iguala cantidad de ceros y unos
+    en un número binario.
+'''
 def paridad_turing(digitos : list) -> list:
     '''
         Cuenta cuantos digitos '1' hay en la lista de digitos,
@@ -32,9 +35,4 @@ def corregir(digitos : list) -> str:
     for digito in digitos:
         texto += digito.__str__()
         
-    return texto    
-
-# Uso un bucle que recorre listas bidimensionales para hacer demostración
-print('\n\tEntrada\t\tSalida\n')
-for entrada in [[1, 0, 1], [1, 1, 1], [0, 1, 0, 0, 0], [1, 0, 1, 1, 0, 1], [0], [1]]:
-    print(f'\t{corregir(entrada)}\t\t{corregir(paridad_turing(entrada))}')
+    return texto
