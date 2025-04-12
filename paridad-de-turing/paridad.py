@@ -6,14 +6,21 @@ def paridad_turing(digitos : list) -> list:
         si es una cantidad par agrega digito '0' como último digito
         sino agrega 1
     '''
+    # Para respetar principio de inmutabilidad de parametros
+    resultado = []
+    # Hago así para que sean listas independientes (como en una maquina de Turing)
+    for digito in digitos:
+        # Agrego así para evitar que pueda sincronizarse con el parametro
+        resultado.append(digito)
+    # Agrego digito que falta    
     if ((digitos.count(1) % 2) == 0):
         # Agrego cero ante paridad de unos para equilibrar
-        digitos.append(0)
+        resultado.append(0)
     else:
         # Agrego uno ante la paridad de ceros para evitar desproporcion
-        digitos.append(1)
+        resultado.append(1)
 
-    return digitos
+    return resultado
 
 def corregir(digitos : list) -> str:
     '''
@@ -21,7 +28,7 @@ def corregir(digitos : list) -> str:
         mas bonita
     '''
     texto = ''
-
+    
     for digito in digitos:
         texto += digito.__str__()
         
