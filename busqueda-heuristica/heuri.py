@@ -8,15 +8,16 @@ def recorrer_filas(recorrida : list, posicion : list) -> list:
 
     columna, fila = 0, 0
 
-    for filas in recorrida:
-        
-        camino.append(filas[columna])
+    while (fila != posicion[0]):
+        camino.append(recorrida[fila][columna])
+        fila += 1
 
-        if ((fila == posicion[0]) and (fila < len(filas))):
-            columna += 1
-        elif ((fila == posicion[0]) and (columna == posicion[1])):
-            break
+    camino.append(recorrida[0][1])
 
-        fila += 1   
+    while (columna != posicion[1]):
+        camino.append(recorrida[fila][columna])
+        columna += 1
+    
+    camino.append(recorrida[fila][columna])
 
-    return camino    
+    return camino
