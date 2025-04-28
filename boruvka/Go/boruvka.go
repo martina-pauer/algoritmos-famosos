@@ -13,7 +13,7 @@ func main() {
 	for grafo_seleccionado := 0; grafo_seleccionado < len(grafos); grafo_seleccionado++ {
 		if grafo_seleccionado == len(grafos)-1 {
 			break
-		} else if menor > grafos[grafo_seleccionado+1][1] {
+		} else if menor >= grafos[grafo_seleccionado+1][1] {
 			// Compara ponderacion, la guarda junto a la fila donde está el grafo
 			menor = grafos[grafo_seleccionado+1][1]
 			indice = uint32(grafo_seleccionado)
