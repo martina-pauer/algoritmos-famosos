@@ -3,9 +3,20 @@ package main
 import "fmt"
 
 // representacion simplificada de 4 Grafos: Vertice_Origen, Ponderacion, Vertice_Destino
-var grafos [4][3]uint8 = [4][3]uint8{{1, 13, 2}, {1, 7, 2}, {1, 60, 2}, {1, 10, 2}}
+var grafos [4][3]uint8
 
 func main() {
+
+	fmt.Println("\nCarga de 4 grafos\n")
+
+	for fila := 0; fila < len(grafos); fila++ {
+		fmt.Println("\tIngrese origen, ponderacion, destino: ")
+		for columna := 0; columna < len(grafos[fila]); columna++ {
+			fmt.Print("\t\t")
+			fmt.Scanln(&grafos[fila][columna])
+		}
+	}
+
 	var menor uint8 = grafos[0][1]
 
 	var indice uint32
@@ -20,5 +31,5 @@ func main() {
 		}
 	}
 
-	fmt.Println("La fila de menor ponderacion es ", grafos[indice][0], ", ", menor, ", ", grafos[indice][2])
+	fmt.Println("\nEl grafo de menor ponderacion es ", grafos[indice][0], ", ", menor, ", ", grafos[indice][2])
 }
