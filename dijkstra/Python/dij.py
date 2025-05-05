@@ -36,12 +36,21 @@ fin = input('\tIngrese caracter a donde ir: ')
 
 recorrido = []
 
-for recorrer in partes:
-   if ((chr(recorrer.vertice_origen) == inicio) or (chr(recorrer.vertice_destino) == inicio) or (chr(recorrer.vertice_origen) == fin) or (chr(recorrer.vertice_destino) == fin)):
-      if recorrer.ponderado < 2:
-         continue
-      else:
-          recorrido.append(recorrer)
+menor_ponderacion = partes[0].ponderado
 
+mayor_ponderacion = partes[1].ponderado
+
+for recorrer in partes:
+    if (recorrer.ponderado < menor_ponderacion):
+        menor_ponderacion = recorrer.ponderado
+    elif (recorrer.ponderado >= mayor_ponderacion):
+        mayor_ponderacion = recorrer.ponderado
+
+for recorriendo in partes:
+    if ((chr(recorriendo.vertice_origen) == fin) or (chr(recorriendo.vertice_destino) == inicio)) and (recorriendo.ponderado > menor_ponderacion) and (recorriendo.ponderado <= mayor_ponderacion):
+        recorrido.append(recorriendo)
+    elif (chr(recorriendo.vertice_origen) == inicio) and recorriendo.ponderado > menor_ponderacion:
+        recorrido.append(recorriendo)
+        break
 
 print(f'\nEl recorrido de Dijkstra encontrado es {representar(recorrido).__str__()}')   
